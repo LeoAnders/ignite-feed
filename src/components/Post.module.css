@@ -73,7 +73,7 @@
   border-top: 1px solid var(--gray-600);
 }
 
-commentForm > strong {
+.commentForm > strong {
   line-height: 1.6;
   color: var(--gray-100);
 }
@@ -112,4 +112,8 @@ commentForm > strong {
   cursor: pointer;
 
   transition: background-color 0.1s;
+}
+
+.commentList {
+  margin-top: 2rem;
 }
