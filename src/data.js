@@ -20,9 +20,10 @@ export const post = [
   },
   {
     author: {
-      avatar_url: "https://avatars.githubusercontent.com/u/121907402?v=4",
-      name: "Gabriel Massaia",
-      role: "Desenvolvedor",
+      avatar_url:
+        "https://cdn-sites-images.46graus.com/files/photos/d45147ca/e41ba267-936b-4836-985c-30e832cb57a0/andre-cruz-estudio-fotografico-15-98141-6016-acruzestudiofotografico-11-1920x1535.jpg",
+      name: "John",
+      role: "Desenvolvedor Pleno",
     },
     id: 2,
     content: [
