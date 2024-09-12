@@ -6,9 +6,9 @@ import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 import { useState } from "react";
 
-export function Post({ author, content, publishedAt }) {
-  const [comments, setComments] = useState([]);
-  const [newCommentText, setNewCommentText] = useState([""]);
+export function Post({ author, publishedAt, content }) {
+  const [comments, setComments] = useState(["Show!"]);
+  const [newCommentText, setNewCommentText] = useState("");
 
   const publishedDateFormatted = format(
     publishedAt,
@@ -30,7 +30,12 @@ export function Post({ author, content, publishedAt }) {
   }
 
   function handleNewCommentChange() {
+    event.target.setCustomValidity("");
     setNewCommentText(event.target.value);
+  }
+
+  function handleNewCommentInvalid() {
+    event.target.setCustomValidity("Esse campo é obrigatório");
   }
 
   function deleteComment(commentToDelete) {
@@ -39,6 +44,8 @@ export function Post({ author, content, publishedAt }) {
     });
     setComments(commentWithoutDeleteOne);
   }
+
+  const isNewCommentEmpty = newCommentText.length === 0;
 
   return (
     <article className={styles.post}>
@@ -80,10 +87,14 @@ export function Post({ author, content, publishedAt }) {
           placeholder="Deixe seu comentário"
           value={newCommentText}
           onChange={handleNewCommentChange}
+          onInvalid={handleNewCommentInvalid}
+          required
         ></textarea>
 
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+            Publicar
+          </button>
         </footer>
       </form>
 
