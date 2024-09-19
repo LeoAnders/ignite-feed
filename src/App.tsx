@@ -5,7 +5,7 @@ import { Post } from "./components/Post";
 import styles from "./App.module.css";
 import "./global.css";
 
-import { post } from "./data";
+import { post } from "./data.js";
 
 export function App() {
   return (
